@@ -10,15 +10,15 @@
 9. Ensure SQL Server Browser and SQL Server are both running.
 Note: If your Server Browser Start Mode says disabled, follow these steps:
 
-    Press Win + R
+        Press Win + R
 
-    Open services.msc
+        Open services.msc
   
-    Find and right-click SQL Server Browser and select properties.
+        Find and right-click SQL Server Browser and select properties.
   
-    For Startup type, select manual or automatic.
+        For Startup type, select manual or automatic.
   
-    Return to server manager and ensure both server and server browser are running.
+        Return to server manager and ensure both server and server browser are running.
   
   
   
@@ -34,9 +34,9 @@ Note: If your Server Browser Start Mode says disabled, follow these steps:
 20. Select "New Query"
 21. Run the command
 
-    USE master;
+        USE master;
 
-    GRANT CREATE ANY DATABASE TO yourUser
+        GRANT CREATE ANY DATABASE TO yourUser;
   
 22. Return to the server manager.
 23. Select SQL Server Services.
