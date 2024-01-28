@@ -45,7 +45,10 @@ This software utilizes Microsoft's SQL Server 2022 Express. If you do not have S
 
 5. Replace "username" and "password" with your SQL Server username and password.
 6. Open SSMS and login with the user you are going to use for this project.
-7. Execute the query "CREATE DATABASE ChocAn;".
+7. Execute this query
+
+        CREATE DATABASE ChocAn;
+   
 8. For your first time running the software, open the GUI class and run the program!
 
 
