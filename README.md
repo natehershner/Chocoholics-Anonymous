@@ -30,7 +30,7 @@ This software utilizes Microsoft's SQL Server 2022 Express. If you do not have S
 # SQL Setup
 1. Access the "CreateSQL" class and find the method titled "giveConnection"
 2. In this method you will see "String jdbcURL"; this is what you need to change.
-3. Replace "SeverName" with your server name, which can be found in SSMS
+3. Replace "ServerName" with your server name, which can be found in SSMS
 4. Replace "PortNumber" with your port number Note: If you do not know what port your server is on follow these steps
 
         Open the Sql Server Configuration Manager.
@@ -43,8 +43,8 @@ This software utilizes Microsoft's SQL Server 2022 Express. If you do not have S
 
         Scroll to the bottom and you should see "TCP Dynamic Ports" with your port listed.
 
-5. Replace "username" and "password" with your SQL Server username and password.
-6. Open SSMS and login with the user you are going to use for this project.
+5. Replace "Username" and "Password" with your SQL Server username and password.
+6. Open SSMS and log in with the user you are going to use for this project.
 7. Execute this query
 
         CREATE DATABASE ChocAn;
