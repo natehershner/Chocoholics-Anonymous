@@ -3,14 +3,14 @@ Software created for the fictitious Chocoholics Anonymous company for a Computer
 # WARNING
 This software utilizes Microsoft's SQL Server 2022 Express. If you do not have SQL installed, please follow the tutorial included in the SQLInstall.md file before running the project.
 # Project Initialization For Eclipse
-1. Install the Chocoholics Anonymous zip.
+1. Install the ChocoholicsAnonymous zip.
 2. Unzip the zip in your desired location.
 3. Select "File" -> "Import" in Eclipse.
 4. Select "General" -> "Existing Projects into Workspace."
 5. Choose the root directory of the unzipped project (the ChocoholicsAnonymous folder).
 
 # Project Initialization For IntelliJ IDEA
-1. Install the Chocoholics Anonymous zip.
+1. Install the ChocoholicsAnonymous zip.
 2. Unzip the zip in your desired location.
 3. Select "File" -> "Project from Existing Sources" in IntelliJ IDEA.
 4. Select the ChocoholicsAnonymous folder from the unzipped zip.
