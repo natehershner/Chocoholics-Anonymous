@@ -12,7 +12,7 @@ This software utilizes Microsoft's SQL Server 2022 Express. If you do not have S
 # Project Initialization For IntelliJ IDEA
 1. Install the ChocoholicsAnonymous zip.
 2. Unzip the zip in your desired location.
-3. Select "File" -> "Project from Existing Sources" in IntelliJ IDEA.
+3. Select "File" -> "New" -> "Project from Existing Sources" in IntelliJ IDEA.
 4. Select the ChocoholicsAnonymous folder from the unzipped zip.
 5. Under "Create project from existing sources" select Eclipse.
 6. Identify the project name or click next.
