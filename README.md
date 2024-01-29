@@ -37,7 +37,7 @@ This software utilizes Microsoft's SQL Server 2022 Express. If you do not have S
 
 ![Line to change](SetupImages/LineToChange.PNG)
 
-3. Replace "ServerName" with your server name, which can be found at the top of the Object Explorer in SSMS (remember to use two forward slashes if your server name includes a forward slash).
+3. Replace "ServerName" with your server name, which can be found at the top of the Object Explorer in SSMS (remember to use two backslashes if your server name includes a backslash).
 
 4. Replace "PortNumber" with your port number Note: If you do not know what port your server is on follow these steps
 
