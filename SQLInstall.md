@@ -32,7 +32,7 @@ Note: If your Server Browser Start Mode says disabled, follow these steps:
 18. Click SQL Server authentication and enter a login name and password, disable "Enforce password policy" if you would like to remove the requirements on your password.
 19. Click OK to save the new user
 20. Select "New Query"
-21. Run the command
+21. Run this command with "yourUser" being the login name you created.
 
         USE master;
 

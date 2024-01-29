@@ -12,7 +12,7 @@ This software utilizes Microsoft's SQL Server 2022 Express. If you do not have S
 # Project Initialization For IntelliJ IDEA
 1. Install the ChocoholicsAnonymous zip.
 2. Unzip the zip in your desired location.
-3. Select "File" -> "Project from Existing Sources" in IntelliJ IDEA.
+3. Select "File" -> "New" -> "Project from Existing Sources" in IntelliJ IDEA.
 4. Select the ChocoholicsAnonymous folder from the unzipped zip.
 5. Under "Create project from existing sources" select Eclipse.
 6. Identify the project name or click next.
@@ -32,12 +32,14 @@ This software utilizes Microsoft's SQL Server 2022 Express. If you do not have S
 
 ![Method to change](SetupImages/Method.PNG)
 
-3. In this method you will see "String jdbcURL"; this is what you need to change.
+2. In this method you will see "String jdbcURL"; this is what you need to change.
 
 
 ![Line to change](SetupImages/LineToChange.PNG)
-4. Replace "ServerName" with your server name, which can be found in SSMS
-5. Replace "PortNumber" with your port number Note: If you do not know what port your server is on follow these steps
+
+3. Replace "ServerName" with your server name, which can be found at the top of the Object Explorer in SSMS (remember to use two forward slashes if your server name includes a forward slash).
+
+4. Replace "PortNumber" with your port number Note: If you do not know what port your server is on follow these steps
 
         Open the Sql Server Configuration Manager.
 
@@ -49,12 +51,12 @@ This software utilizes Microsoft's SQL Server 2022 Express. If you do not have S
 
         Scroll to the bottom and you should see "TCP Dynamic Ports" with your port listed.
 
-6. Replace "Username" and "Password" with your SQL Server username and password.
-7. Open SSMS and log in with the user you are going to use for this project.
-8. Execute this query
+5. Replace "Username" and "Password" with your SQL Server username and password.
+6. Open SSMS and log in with the user you are going to use for this software.
+7. Execute this query
 
         CREATE DATABASE ChocAn;
    
-9. For your first time running the software, open the GUI class and run the program!
+8. For your first time running the software, open the GUI class and run the program!
 
 
