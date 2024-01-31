@@ -53,6 +53,7 @@ public class AlterMember implements ActionListener, MouseListener{
         
         Font buttonFont = new Font("Rockwell", Font.BOLD, 30);
         button.setFont(buttonFont);
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
         
         alterMemberPanel = new JPanel();
         alterMemberPanel.setLayout(new BoxLayout(alterMemberPanel, BoxLayout.Y_AXIS));
@@ -273,6 +274,7 @@ public class AlterMember implements ActionListener, MouseListener{
         alterMemberPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Add spacing
         alterMemberPanel.add(sendBillButton);
         alterMemberPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Add spacing
+        alterMemberPanel.add(button);
        
         
         
@@ -399,6 +401,9 @@ public class AlterMember implements ActionListener, MouseListener{
 	                showOkDialog("Member not saved.");
 	            }
 	        }
+	    } else if (clickedButton.getText().equals("Go Back")) {
+	    		new EditCurrentMembers();
+	    		alterMemberFrame.dispose();
 	    }
 	}
 

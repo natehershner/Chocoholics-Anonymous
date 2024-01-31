@@ -52,6 +52,7 @@ public class AlterProvider implements ActionListener, MouseListener{
         
         Font buttonFont = new Font("Rockwell", Font.BOLD, 30);
         button.setFont(buttonFont);
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
         
         alterProviderPanel = new JPanel();
         alterProviderPanel.setLayout(new BoxLayout(alterProviderPanel, BoxLayout.Y_AXIS));
@@ -272,6 +273,7 @@ public class AlterProvider implements ActionListener, MouseListener{
         alterProviderPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Add spacing
         alterProviderPanel.add(sendBillButton);
         alterProviderPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Add spacing
+        alterProviderPanel.add(button);
        
         
         
@@ -376,6 +378,9 @@ public class AlterProvider implements ActionListener, MouseListener{
 	                showOkDialog("Provider not saved.");
 	            }
 	        }
+	    } else if (clickedButton.getText().equals("Go Back")) {
+	    	new EditCurrentProviders();
+	    	alterProviderFrame.dispose();
 	    }
 	}
 

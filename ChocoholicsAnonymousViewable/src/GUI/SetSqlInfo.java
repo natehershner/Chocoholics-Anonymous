@@ -149,9 +149,7 @@ public class SetSqlInfo implements ActionListener, MouseListener {
         usernameField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                if (usernameField.getText().length() >= 6) {
-                    e.consume(); // Ignore the key input if the length is already 9 or more
-                }
+            	
             }
         });
 
@@ -167,9 +165,6 @@ public class SetSqlInfo implements ActionListener, MouseListener {
         databaseNameField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                if (databaseNameField.getText().length() >= 9) {
-                    e.consume(); // Ignore the key input if the length is already 9 or more
-                }
             }
         });
 
