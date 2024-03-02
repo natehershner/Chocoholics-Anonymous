@@ -240,6 +240,7 @@ public class CreateSQL {
 	 
 	 public static Connection giveConnection() {
 		 try {
+			 DriverManager.setLoginTimeout(3);
 			 String server = prefs.get("serverName", "");
 			 String port = prefs.get("portNumber", "");
 			 String dataBase = prefs.get("databaseName", "");
@@ -249,9 +250,8 @@ public class CreateSQL {
 			 Connection connection = DriverManager.getConnection(jdbcUrl);
 			 return connection;
 		 } catch (SQLException e) {
-			 e.printStackTrace();
+			 return null;
 		 }
-		 return null;
 	 }
 	 
 	 /*

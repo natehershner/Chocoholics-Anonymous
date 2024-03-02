@@ -36,8 +36,8 @@ import java.awt.event.*;
 
          JButton button = createButton("Provider Login");
          button.addActionListener(this);
-         button.setPreferredSize(new Dimension(500, 100));
-         button.setMaximumSize(new Dimension(700, 150));
+         button.setPreferredSize(new Dimension(400, 100));
+         button.setMaximumSize(new Dimension(600, 150));
 
          Font buttonFont = new Font("Rockwell", Font.BOLD, 30);
          button.setFont(buttonFont);
@@ -73,8 +73,8 @@ import java.awt.event.*;
 
          JButton button2 = createButton("Operator Login");
          button2.addActionListener(this);
-         button2.setPreferredSize(new Dimension(500, 100));
-         button2.setMaximumSize(new Dimension(700, 150));
+         button2.setPreferredSize(new Dimension(400, 100));
+         button2.setMaximumSize(new Dimension(600, 150));
          panel.add(button2);
          button2.setFont(buttonFont);
 
@@ -82,24 +82,31 @@ import java.awt.event.*;
 
          JButton button3 = createButton("Manager Login");
          button3.addActionListener(this);
-         button3.setPreferredSize(new Dimension(500, 100));
-         button3.setMaximumSize(new Dimension(700, 150));
+         button3.setPreferredSize(new Dimension(400, 100));
+         button3.setMaximumSize(new Dimension(600, 150));
          panel.add(button3);
          button3.setFont(buttonFont);
          
          panel.add(Box.createRigidArea(new Dimension(0, 15))); // Add spacing 
          JButton button4 = createButton("Run Main Accounting Procedure");
          button4.addActionListener(this);
-         button4.setPreferredSize(new Dimension(500, 100));
-         button4.setMaximumSize(new Dimension(700, 150));
+         button4.setPreferredSize(new Dimension(400, 100));
+         button4.setMaximumSize(new Dimension(600, 150));
          panel.add(button4);
          button4.setFont(buttonFont);
-
          
+         JButton button5 = createButton("Edit SQL Info");
+         button5.addActionListener(this);
+         button5.setPreferredSize(new Dimension(400, 100));
+         button5.setMaximumSize(new Dimension(600, 150));
+         panel.add(Box.createRigidArea(new Dimension(0, 15)));
+         button5.setFont(buttonFont);
+         panel.add(button5);
          button.setAlignmentX(Component.CENTER_ALIGNMENT);
          button2.setAlignmentX(Component.CENTER_ALIGNMENT);
          button3.setAlignmentX(Component.CENTER_ALIGNMENT);
          button4.setAlignmentX(Component.CENTER_ALIGNMENT);
+         button5.setAlignmentX(Component.CENTER_ALIGNMENT);
 
          frame.add(panel);
 
@@ -182,6 +189,14 @@ import java.awt.event.*;
 
          	    if (result == JOptionPane.YES_OPTION) {
          	    	new RunMainAccountingProcedure();
+         	    	frame.dispose();
+         	    }
+             } else if(clickedButton.getText().equals("Edit SQL Info"))
+               {
+            	 int result = JOptionPane.showConfirmDialog(frame, "Do you want to Edit SQL Info?", "Confirmation", JOptionPane.YES_NO_OPTION);
+
+         	    if (result == JOptionPane.YES_OPTION) {
+         	    	new SetSqlInfo();
          	    	frame.dispose();
          	    }
              }

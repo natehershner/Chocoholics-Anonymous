@@ -25,9 +25,12 @@ public class SetSqlInfo implements ActionListener, MouseListener {
     private JTextField databaseNameField;
     private JTextField passwordField;
     private JTextField usernameField;
-    
+    boolean empty = false;
     public SetSqlInfo() {
     	prefs = Preferences.userNodeForPackage(GUI.class);
+    	if (prefs.get("serverName", "").isEmpty()) {
+    		empty = true;
+    	}
   	    preferencesFrame = new JFrame("Set SQL Preferences");
         ImageIcon frameIcon = new ImageIcon(getClass().getResource("/ChocolateIcon.jpg"));
         preferencesFrame.setIconImage(frameIcon.getImage());
@@ -39,7 +42,12 @@ public class SetSqlInfo implements ActionListener, MouseListener {
         
         Font buttonFont = new Font("Rockwell", Font.BOLD, 30);
         button.setFont(buttonFont);
+        JButton button2 = createButton("Home");
+        button2.addActionListener(this);
+        button2.setPreferredSize(new Dimension(500, 100));
+        button2.setMaximumSize(new Dimension(450, 100));
         
+        button2.setFont(buttonFont);
         preferencesPanel = new JPanel();
         preferencesPanel.setLayout(new BoxLayout(preferencesPanel, BoxLayout.Y_AXIS));
         preferencesPanel.setBackground(new Color(0x89CFF0));
@@ -209,7 +217,10 @@ public class SetSqlInfo implements ActionListener, MouseListener {
         preferencesPanel.add(passwordField);
         preferencesPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Add spacing
         preferencesPanel.add(button);
+        preferencesPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Add spacing
+        preferencesPanel.add(button2);
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button2.setAlignmentX(Component.CENTER_ALIGNMENT);
         preferencesFrame.setVisible(true);
     }
     private int showYesNoDialog(String message) {
@@ -239,6 +250,7 @@ public class SetSqlInfo implements ActionListener, MouseListener {
                 option[0]);
                 
     }
+  
     /**
      * Creates a JButton with specified text and adds a mouse listener to it.
      *
@@ -254,7 +266,7 @@ public class SetSqlInfo implements ActionListener, MouseListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton clickedButton = (JButton) e.getSource();
-
+        String[] info = new String[5];
         if (clickedButton.getText().equals("Save Info")) {
             // Show custom dialog for "Yes" and "No" options
             int result = showYesNoDialog("Are you sure you want to save SQL info and proceed to the application?");
@@ -274,11 +286,43 @@ public class SetSqlInfo implements ActionListener, MouseListener {
                 	tmp += c;
                 }
                 serverName = tmp;
+                if (!empty) {
+                  info[0] = prefs.get("serverName", "");
+                  info[1] = prefs.get("portNumber", "");
+       			  info[2] = prefs.get("databaseName", "");
+       			  info[3] = prefs.get("username", "");
+       			  info[4] = prefs.get("password", "");
+                }
                 prefs.put("serverName", serverName);
                 prefs.put("portNumber", portNumber);
                 prefs.put("databaseName", databaseName);
                 prefs.put("username", username);
                 prefs.put("password", password);
+                Connection connection = CreateSQL.giveConnection();
+                if (connection == null) {
+                	showOkDialog("SQL connection failed");
+                	if (empty) {
+                		try {
+                			prefs.clear();
+                		} catch (Exception excep) {
+                			
+                		}
+                		
+                	}
+                	else {
+                		prefs.put("serverName", info[0]);
+                        prefs.put("portNumber", info[1]);
+                        prefs.put("databaseName", info[2]);
+                        prefs.put("username", info[3]);
+                        prefs.put("password", info[4]);
+                	}
+                	serverNameField.setText("Server Name");
+                	portNumberField.setText("Port Number");
+                	databaseNameField.setText("Database Name");
+                	usernameField.setText("SQL Authentication Username");
+                	passwordField.setText("SQL Authentication Password");
+                	return;
+                }
                 runSqlPopulation();
                 new GUI();
                 preferencesFrame.dispose();
@@ -287,6 +331,14 @@ public class SetSqlInfo implements ActionListener, MouseListener {
                     // User clicked "No" or closed the dialog, handle accordingly
                 showOkDialog("SQL info not saved. ");
             }      
+        } else if (clickedButton.getText().equals("Home")) {
+        	if (prefs.get("serverName", "").isEmpty()) {
+        		showOkDialog("Cannot enter home screen before setting up SQL");
+        		return;
+        	}
+        	new GUI();
+        	preferencesFrame.dispose();
+        	
         }
     }
 
