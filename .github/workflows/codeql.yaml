@@ -72,6 +72,11 @@ jobs:
 
 
         run: echo "Using prebuilt JAR"
+      - name: Extract JAR contents
+        run: |
+          mkdir -p build/classes
+          unzip -o Chocoholics-Anonymous.jar -d build/classes
+          find build/classes -type f -name "*.class" | head
  
 
       - name: Perform CodeQL Analysis 
