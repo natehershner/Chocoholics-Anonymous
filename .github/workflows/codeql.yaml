@@ -75,7 +75,7 @@ jobs:
       - name: Extract JAR contents
         run: |
           mkdir -p build/classes
-          unzip -o Chocoholics-Anonymous.jar -d build/classes
+          unzip -o ChocoholicsAnonymous.jar -d build/classes
           find build/classes -type f -name "*.class" | head
  
 
