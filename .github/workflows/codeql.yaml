@@ -61,23 +61,13 @@ jobs:
         with: 
 
           languages: ${{ matrix.language }} 
+          build-mode: none
 
           # queries: security-extended,security-and-quality # optional suites 
 
  
 
       # For compiled languages, try Autobuild first (ignored for script languages) 
-
-      - name: Skip Autobuild 
-
-
-        run: echo "Using prebuilt JAR"
-      - name: Extract JAR contents
-        run: |
-          mkdir -p build/classes
-          unzip -o ChocoholicsAnonymous.jar -d build/classes
-          find build/classes -type f -name "*.class" | head
- 
 
       - name: Perform CodeQL Analysis 
 
